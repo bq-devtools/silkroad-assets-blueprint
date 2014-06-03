@@ -1,0 +1,23 @@
+FORMAT: 1A
+HOST: https://assets-int.bqws.io/
+
+# Assets
+This module controls the user assets. When a user purchases a product, that product could have a number of assets asociated with it. If the user want to access to the resources witch thouse assets give access, he needs to use this module.
+
+# Group Asset
+Operations with assets
+
+## Access to user assets [/v1.0/asset/access]
+### Access [GET]
+
+###Query Parameter Fields###
+|Name|Description|Type|Required|Default|
+|------|-----|-----------|:--:|:--|
+|redirect|If true, the request returns 303 to redirect to IAM. Else, returns 200 with the header "Location" and the client should perform the redirection manualy.|Boolean||true|
+
++ Response 303
+
+    + Header
+    
+            Location: https://iam-int.bqws.io/v1.0/token/upgrade?assertion=asdhaewodnwodanwasdasdwefr230r20r
+
