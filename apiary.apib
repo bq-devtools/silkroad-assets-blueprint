@@ -13,7 +13,8 @@ Operations with assets
 ###Header###
 |Name|Description|Type|Required|Default|
 |------|-----|-----------|:--:|:--|
-|No-Redirect|If false, the request returns 303 to redirect to IAM. Else, returns 204 with the header "Location" and the client should perform the redirection manualy.|Boolean||false|
+|No-Redirect|If true, returns 204 with the header "Location" and the client should perform the redirection manualy. Else the request returns 303 to redirect to IAM.|Boolean||false|
+
 
 + Response 303
 
