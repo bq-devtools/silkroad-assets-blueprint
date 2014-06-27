@@ -10,10 +10,10 @@ Operations with assets
 ## Access to user assets [/v1.0/asset/access]
 ### Access [GET]
 
-###Query Parameter Fields###
+###Header###
 |Name|Description|Type|Required|Default|
 |------|-----|-----------|:--:|:--|
-|redirect|If true, the request returns 303 to redirect to IAM. Else, returns 200 with the header "Location" and the client should perform the redirection manualy.|Boolean||true|
+|No-Redirect|If false, the request returns 303 to redirect to IAM. Else, returns 204 with the header "Location" and the client should perform the redirection manualy.|Boolean||false|
 
 + Response 303
 
