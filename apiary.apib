@@ -4,8 +4,7 @@ HOST: https://assets-int.bqws.io/
 # Assets
 This module controls the user assets. When a user purchases a product, that product could have a number of assets asociated with it. If the user want to access to the resources witch thouse assets give access, he needs to use this module.
 
-# Group Asset
-Operations with assets
+# Group Upgrade Token
 
 ## Access to user assets [/v1.0/asset/access]
 ### Access [GET]
@@ -24,7 +23,9 @@ Operations with assets
 
 
 
-## Get User Assets [/v1.0/assets/asset]
+# Group User assets
+
+## User Assets [/v1.0/assets/asset/me]
 this endpoint allow to read the user assets. 
 
 ### Get assets [GET]
@@ -65,4 +66,162 @@ this endpoint allow to read the user assets.
                 "assets:test"
                 ] 
         }
+
+# Group Assets management
+
+## Assets [/v1.0/assets/asset]
+this endpoint allow to read and create assets. 
+
+### Get assets [GET]
+
+###Fields###
+|Name|Description|Type|Required|
+|----|-----------|----|:------:|
+|id  |asset identifier|String|
+|userId|User identifier|String|
+|name|Define the asset|String|
+|expire|Date when asset ends in ISO8601 period format (e.g. P1y2m3d)|Date|
+|active|asset is validated|Boolean|
+|scopes|String array with scopes associated with the asset|String|
+
+
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401  |unauthorized|If the access_token is not associated with any user.|
+|404  |not_found|When asset not exist.|
+
++ Request
+    + Header
+    
+            Authorization: Bearer {access_token}
+
++ Response 200 (application/json)
+
+        [
+            { 
+            "_id" : "53aaadfbe4b005e52b14ff37", 
+            "userId" : "fooid", 
+            "name" : "assettest", 
+            "expire" : ISODate("2025-01-01T00:01:00Z"), 
+            "active" : true, 
+            "scopes" : [
+                    "assets:test"
+                    ] 
+            }
+        ]
+
+### Create assets [POST]
+
+###Fields###
+|Name|Description|Type|Required|
+|----|-----------|----|:------:|
+|id  |asset identifier|String|
+|userId|User identifier|String|
+|name|Define the asset|String|
+|expire|Date when asset ends in ISO8601 period format (e.g. P1y2m3d)|Date|
+|active|asset is validated|Boolean|
+|scopes|String array with scopes associated with the asset|String|
+
+
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401  |unauthorized|If the access_token is not associated with any user.|
+|404  |not_found|When asset not exist.|
+
++ Request (application/json)
+    + Header
+    
+            Authorization: Bearer {access_token}
+
+    + Body
+    
+            { 
+                "userId" : "fooid", 
+                "name" : "assettest", 
+                "expire" : ISODate("2025-01-01T00:01:00Z"), 
+                "active" : true, 
+                "scopes" : [
+                    "assets:test"
+                ] 
+            }
+
++ Response 201 
+    + Header
+    
+            Location: http://assets.int.bqreaders.com/v1.0/assets/asset/{newId}
+
+## Assets [/v1.0/assets/asset/{id}]
+this endpoint allow to read and delete assets. 
+
+### Get assets [GET]
+
+###Fields###
+|Name|Description|Type|Required|
+|----|-----------|----|:------:|
+|id  |asset identifier|String|
+|userId|User identifier|String|
+|name|Define the asset|String|
+|expire|Date when asset ends in ISO8601 period format (e.g. P1y2m3d)|Date|
+|active|asset is validated|Boolean|
+|scopes|String array with scopes associated with the asset|String|
+
+
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401  |unauthorized|If the access_token is not associated with any user.|
+|404  |not_found|When asset not exist.|
+
++ Request
+    + Header
+    
+            Authorization: Bearer {access_token}
+
++ Response 200 (application/json)
+
+        { 
+            "_id" : "53aaadfbe4b005e52b14ff37", 
+            "userId" : "fooid", 
+            "name" : "assettest", 
+            "expire" : ISODate("2025-01-01T00:01:00Z"), 
+            "active" : true, 
+            "scopes" : [
+                    "assets:test"
+                    ] 
+        }
+
+
+
+### Delete assets [DELETE]
+
+###Fields###
+|Name|Description|Type|Required|
+|----|-----------|----|:------:|
+|id  |asset identifier|String|
+|userId|User identifier|String|
+|name|Define the asset|String|
+|expire|Date when asset ends in ISO8601 period format (e.g. P1y2m3d)|Date|
+|active|asset is validated|Boolean|
+|scopes|String array with scopes associated with the asset|String|
+
+
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401  |unauthorized|If the access_token is not associated with any user.|
+|404  |not_found|When asset not exist.|
+
++ Request (application/json)
+    + Header
+    
+            Authorization: Bearer {access_token}
+
+
++ Response 204
 
