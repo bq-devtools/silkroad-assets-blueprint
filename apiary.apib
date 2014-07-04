@@ -34,7 +34,8 @@ this endpoint allow to read all assets.
 |id  |asset identifier|String|
 |userId|User identifier|String|
 |name|Define the asset|String|
-|expire|Date when asset ends in ISO8601 period format (e.g. P1y2m3d)|Date|
+|productId|Product that contains this asset|String|
+|expire|Timestamp|Date|
 |active|asset is validated|Boolean|
 |scopes|String array with scopes associated with the asset|String|
 
@@ -58,6 +59,7 @@ this endpoint allow to read all assets.
             "_id" : "53aaadfbe4b005e52b14ff37", 
             "userId" : "fooid", 
             "name" : "assettest", 
+            "productId": "12345",
             "expire" : ISODate("2025-01-01T00:01:00Z"), 
             "active" : true, 
             "scopes" : [
@@ -79,7 +81,8 @@ this endpoint allow to read and create assets.
 |id  |asset identifier|String|
 |userId|User identifier|String|
 |name|Define the asset|String|
-|expire|Date when asset ends in ISO8601 period format (e.g. P1y2m3d)|Date|
+|productId|Product that contains this asset|String|
+|expire|Timestamp|Date|
 |active|asset is validated|Boolean|
 |scopes|String array with scopes associated with the asset|String|
 
@@ -103,6 +106,7 @@ this endpoint allow to read and create assets.
         "_id" : "53aaadfbe4b005e52b14ff37", 
         "userId" : "fooid", 
         "name" : "assettest", 
+        "productId": "12345",
         "expire" : ISODate("2025-01-01T00:01:00Z"), 
         "active" : true, 
         "scopes" : [
@@ -119,7 +123,8 @@ this endpoint allow to read and create assets.
 |id  |asset identifier|String|
 |userId|User identifier|String|
 |name|Define the asset|String|
-|expire|Date when asset ends in ISO8601 period format (e.g. P1y2m3d)|Date|
+|productId|Product that contains this asset|String|
+|expire|Timestamp|Date|
 |active|asset is validated|Boolean|
 |scopes|String array with scopes associated with the asset|String|
 
@@ -141,6 +146,7 @@ this endpoint allow to read and create assets.
             { 
                 "userId" : "fooid", 
                 "name" : "assettest", 
+                "productId": "12345",
                 "expire" : ISODate("2025-01-01T00:01:00Z"), 
                 "active" : true, 
                 "scopes" : [
@@ -164,7 +170,8 @@ this endpoint allow to read and delete assets.
 |id  |asset identifier|String|
 |userId|User identifier|String|
 |name|Define the asset|String|
-|expire|Date when asset ends in ISO8601 period format (e.g. P1y2m3d)|Date|
+|productId|Product that contains this asset|String|
+|expire|Timestamp|Date|
 |active|asset is validated|Boolean|
 |scopes|String array with scopes associated with the asset|String|
 
@@ -187,6 +194,7 @@ this endpoint allow to read and delete assets.
             "_id" : "53aaadfbe4b005e52b14ff37", 
             "userId" : "fooid", 
             "name" : "assettest", 
+            "productId": "12345",
             "expire" : ISODate("2025-01-01T00:01:00Z"), 
             "active" : true, 
             "scopes" : [
@@ -197,17 +205,6 @@ this endpoint allow to read and delete assets.
 
 
 ### Delete assets [DELETE]
-
-###Fields###
-|Name|Description|Type|Required|
-|----|-----------|----|:------:|
-|id  |asset identifier|String|
-|userId|User identifier|String|
-|name|Define the asset|String|
-|expire|Date when asset ends in ISO8601 period format (e.g. P1y2m3d)|Date|
-|active|asset is validated|Boolean|
-|scopes|String array with scopes associated with the asset|String|
-
 
 
 ###Errors###
