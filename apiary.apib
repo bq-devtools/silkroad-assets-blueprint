@@ -22,6 +22,49 @@ This module controls the user assets. When a user purchases a product, that prod
             Location: https://iam-int.bqws.io/v1.0/token/upgrade?assertion=asdhaewodnwodanwasdasdwefr230r20r
 
 
+## Assets [/v1.0/asset]
+this endpoint allow to read and create assets. 
+
+### Get assets [GET]
+
+###Fields###
+|Name|Description|Type|Required|
+|----|-----------|----|:------:|
+|id  |asset identifier|String|
+|userId|User identifier|String|
+|name|Define the asset|String|
+|productId|Product that contains this asset|String|
+|expire|Timestamp|Date|
+|active|asset is validated|Boolean|
+|scopes|String array with scopes associated with the asset|String|
+
+
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401  |unauthorized|If the access_token is not associated with any user.|
+|404  |not_found|When asset not exist.|
+
++ Request
+    + Header
+    
+            Authorization: Bearer {access_token}
+
++ Response 200 (application/json)
+
+
+        { 
+        "_id" : "53aaadfbe4b005e52b14ff37", 
+        "userId" : "fooid", 
+        "name" : "assettest", 
+        "productId": "12345",
+        "expire" : ISODate("2025-01-01T00:01:00Z"), 
+        "active" : true, 
+        "scopes" : [
+                "assets:test"
+                ] 
+        }
 
 # Group Assets management
 Avaliable from version 0.21.0
@@ -72,49 +115,7 @@ this endpoint allow to read all assets.
 
 
 ## Assets [/v1.0/asset]
-this endpoint allow to read and create assets. 
-
-### Get assets [GET]
-
-###Fields###
-|Name|Description|Type|Required|
-|----|-----------|----|:------:|
-|id  |asset identifier|String|
-|userId|User identifier|String|
-|name|Define the asset|String|
-|productId|Product that contains this asset|String|
-|expire|Timestamp|Date|
-|active|asset is validated|Boolean|
-|scopes|String array with scopes associated with the asset|String|
-
-
-
-###Errors###
-|Status|Error|Description|
-|------|-----|-----------|
-|401  |unauthorized|If the access_token is not associated with any user.|
-|404  |not_found|When asset not exist.|
-
-+ Request
-    + Header
-    
-            Authorization: Bearer {access_token}
-
-+ Response 200 (application/json)
-
-
-        { 
-        "_id" : "53aaadfbe4b005e52b14ff37", 
-        "userId" : "fooid", 
-        "name" : "assettest", 
-        "productId": "12345",
-        "expire" : ISODate("2025-01-01T00:01:00Z"), 
-        "active" : true, 
-        "scopes" : [
-                "assets:test"
-                ] 
-        }
-
+this endpoint allow to create assets. 
 
 ### Create assets [POST]
 
