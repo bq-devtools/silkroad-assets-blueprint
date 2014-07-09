@@ -90,7 +90,7 @@ this endpoint allow to read all assets.
 |Status|Error|Description|
 |------|-----|-----------|
 |401  |unauthorized|If the access_token is not associated with any user.|
-|422  |invalid_entity|JSON doesn't correspond to assets or is empty|
+|404  |not_found|When asset not exist.|
 
 + Request
     + Header
@@ -136,7 +136,7 @@ this endpoint allow to create assets.
 |Status|Error|Description|
 |------|-----|-----------|
 |401  |unauthorized|If the access_token is not associated with any user.|
-|404  |not_found|When asset not exist.|
+|422  |invalid_entity|JSON doesn't correspond to assets or is empty|
 
 + Request (application/json)
     + Header
