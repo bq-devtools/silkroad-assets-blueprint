@@ -44,7 +44,6 @@ this endpoint allow to read and create assets.
 |Status|Error|Description|
 |------|-----|-----------|
 |401  |unauthorized|If the access_token is not associated with any user.|
-|404  |not_found|When asset not exist.|
 
 + Request
     + Header
@@ -66,58 +65,8 @@ this endpoint allow to read and create assets.
                 ] 
         }
 
-# Group Assets management
-Avaliable from version 0.21.0
-## Assets [/v1.0/asset/all]
-this endpoint allow to read all assets. 
-
-### Get assets [GET]
-
-###Fields###
-|Name|Description|Type|Required|
-|----|-----------|----|:------:|
-|id  |asset identifier|String|
-|userId|User identifier|String|
-|name|Define the asset|String|
-|productId|Product that contains this asset|String|
-|expire|Timestamp|Date|
-|active|asset is validated|Boolean|
-|scopes|String array with scopes associated with the asset|String|
-
-
-
-###Errors###
-|Status|Error|Description|
-|------|-----|-----------|
-|401  |unauthorized|If the access_token is not associated with any user.|
-|404  |not_found|When asset not exist.|
-
-+ Request
-    + Header
-    
-            Authorization: Bearer {access_token}
-
-+ Response 200 (application/json)
-
-        [
-            { 
-            "_id" : "53aaadfbe4b005e52b14ff37", 
-            "userId" : "fooid", 
-            "name" : "assettest", 
-            "productId": "12345",
-            "expire" : ISODate("2025-01-01T00:01:00Z"), 
-            "active" : true, 
-            "scopes" : [
-                    "assets:test"
-                    ] 
-            }
-        ]
-
-
-## Assets [/v1.0/asset]
-this endpoint allow to create assets. 
-
 ### Create assets [POST]
+this endpoint allow to create assets. 
 
 ###Fields###
 |Name|Description|Type|Required|
@@ -160,6 +109,52 @@ this endpoint allow to create assets.
     + Header
     
             Location: http://assets.int.bqreaders.com/v1.0/assets/asset/{newId}
+
+# Group Assets management
+Avaliable from version 0.21.0
+## Assets [/v1.0/asset/all]
+this endpoint allow to read all assets. 
+
+### Get assets [GET]
+
+###Fields###
+|Name|Description|Type|Required|
+|----|-----------|----|:------:|
+|id  |asset identifier|String|
+|userId|User identifier|String|
+|name|Define the asset|String|
+|productId|Product that contains this asset|String|
+|expire|Timestamp|Date|
+|active|asset is validated|Boolean|
+|scopes|String array with scopes associated with the asset|String|
+
+
+
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|401  |unauthorized|If the access_token is not associated with any user.|
+
++ Request
+    + Header
+    
+            Authorization: Bearer {access_token}
+
++ Response 200 (application/json)
+
+        [
+            { 
+            "_id" : "53aaadfbe4b005e52b14ff37", 
+            "userId" : "fooid", 
+            "name" : "assettest", 
+            "productId": "12345",
+            "expire" : ISODate("2025-01-01T00:01:00Z"), 
+            "active" : true, 
+            "scopes" : [
+                    "assets:test"
+                    ] 
+            }
+        ]
 
 ## Assets [/v1.0/asset/{id}]
 this endpoint allow to read and delete assets. 
