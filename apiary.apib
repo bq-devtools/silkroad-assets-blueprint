@@ -32,12 +32,39 @@ This endpoint allows the user to obtain a new session token, assuming that user'
 
 *When No-Redirect flag is true, apart from endpoint's URL returned in the Location header, extra data (also needed for performing the redirection) is returned in the body. This funny way of performing a redirection in deed solves headers' overflown problems since returned token/JWT can be extremely long.
 
+
++ Request
+    + Header
+    
+            No-Redirect: false
+
 + Response 303
 
     + Header
     
             Location: https://iam-int.bqws.io/v1.0/token/upgrade?assertion=asdhaewodnwodanwasdasdwefr230r20r
 
+
++ Request
+    + Header
+    
+            No-Redirect: true
+
++ Response 200 (No-Redirect=True)
+
+    + Header
+    
+            Location: https://iam-int.bqws.io/v1.0/token/upgrade
+
+    + Body
+
+            { 
+                "assetion" : "asdhaewodnwodanwasdasdwefr230r20r", 
+                "grant" : "urn:ietf:params:oauth:grant-type:jwt-bearer", 
+                "bearer": "eyJ0eXBlIjoiVE9LRU4iLCJjbGllbnRJZCI6ImE5ZmIwZTc5Iiwic3RhdGUiOiIxNDQxNzIyOTU3MDAwIiwiZG9tYWluSWQiOiJzaWxrcm9hZC1xYSIsInVzZXJJZCI6ImZvb2lkIiwiZ3JvdXBzIjpbXX0.5208cf5e4854f.HnibZqi2ha-_Js44rw1l42T2uL0%22%7D",
+            }
+
+    
 
 ## Assets [/v1.0/asset]
 this endpoint allow to read and create assets. 
