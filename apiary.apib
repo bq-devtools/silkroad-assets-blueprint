@@ -28,7 +28,7 @@ This endpoint allows the user to obtain a new session token, assuming that user'
 ###Header###
 |Name|Description|Type|Required|Default|
 |------|-----|-----------|:--:|:--|
-|No-Redirect|If true, returns 200 with the redirect endpoint in the header "Location" and the client should perform the redirection manualy. Else the request replies with a 303 that redirects to IAM.|Boolean||false|
+|No-Redirect|If true, returns 200 with the redirect endpoint in the header "Location" and the client should perform the redirection manualy. Else the request replies with a 303 code an redirects to IAM.|Boolean||false|
 
 *When No-Redirect flag is true, apart from endpoint's URL returned in the Location header, extra data (also needed for performing the redirection) is returned in the body. This funny way of performing a redirection in deed solves headers' overflown problems since returned token/JWT can be extremely long.
 
