@@ -7,19 +7,6 @@ This module controls the user assets. When a user purchases a product, that prod
 # Group Upgrade Token
 
 ## Access to user assets [/v1.0/asset/access]
-<!--### Access [GET]-->
-
-<!--###Header###-->
-<!--|Name|Description|Type|Required|Default|-->
-<!--|------|-----|-----------|:--:|:--|-->
-<!--|No-Redirect|If true, returns 204 with the header "Location" and the client should perform the redirection manualy. Else the request returns 303 to redirect to IAM.|Boolean||false|-->
-
-
-<!--+ Response 303-->
-
-<!--    + Header-->
-    
-<!--            Location: https://iam-int.bqws.io/v1.0/token/upgrade?assertion=asdhaewodnwodanwasdasdwefr230r20r-->
 
 ### Access [GET]
 This endpoint allows the user to obtain a new session token, assuming that user's assets had changed recently and it's necesary to perform the update.
@@ -30,9 +17,11 @@ This endpoint allows the user to obtain a new session token, assuming that user'
 |------|-----|-----------|:--:|:--|
 |No-Redirect|If true, returns 200 with the redirect endpoint in the header "Location" and the client should perform the redirection manualy. Else the request replies with a 303 code an redirects to IAM.|Boolean||false|
 
-Server replies with a 409 when No-Redirect=false and the user has many assets. No-Redirect=true header is highly recomended.
 
-<!--*When No-Redirect flag is true, apart from endpoint's URL returned in the Location header, extra data (also needed for performing the redirection) is returned in the body. This funny way of performing a redirection in deed solves headers' overflown problems since returned token/JWT can be extremely long.-->
+###Errors###
+|Status|Error|Description|
+|------|-----|-----------|
+|409  |conflict|No-Redirect=false and the user has many assets. No-Redirect=true header is highly recomended.|
 
 
 + Request
