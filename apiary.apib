@@ -21,6 +21,7 @@ This endpoint allows the user to obtain a new session token, assuming that user'
 ###Errors###
 |Status|Error|Description|
 |------|-----|-----------|
+|401|unauthorized| If the access_token is not associated with any user.
 |409  |conflict|No-Redirect=false and the user has many assets. No-Redirect=true header is highly recomended.|
 
 
@@ -119,6 +120,7 @@ this endpoint allow to create assets.
 ###Errors###
 |Status|Error|Description|
 |------|-----|-----------|
+|400|not_existent_scope| Obtained when submitted assets do not contain valid scopes.
 |401  |unauthorized|If the access_token is not associated with any user.|
 |422  |invalid_entity|JSON doesn't correspond to assets or is empty|
 
