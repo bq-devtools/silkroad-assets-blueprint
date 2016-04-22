@@ -100,12 +100,14 @@ this endpoint allow to read and create assets.
         "scopes" : [
                 "assets:test"
                 ],
-        "filterResults":
+        "filterResults": {
             "max-devices-asset-filter":false,
             "test-filter":true
-        "filters": ["max-devices-asset-filter","test-filter"]
-        "properties":
+            },
+        "filters": ["max-devices-asset-filter","test-filter"],
+        "properties": {
             "property1":"hi"
+            }
         }
 
 ### Create assets [POST]
