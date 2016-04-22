@@ -73,8 +73,9 @@ this endpoint allow to read and create assets.
 |expire|Timestamp|Date|
 |active|asset is validated|Boolean|
 |scopes|String array with scopes associated with the asset|String|
-
-
+|filterResults|Map wih String keys an boolean values, where each key represents a filter associated to the asset and the boolean if the asset passes the filter |Map|
+|filters|String array with filters associated to the asset|String|
+|properties|Extra information about the asset |Map|
 
 ###Errors###
 |Status|Error|Description|
@@ -98,7 +99,13 @@ this endpoint allow to read and create assets.
         "active" : true, 
         "scopes" : [
                 "assets:test"
-                ] 
+                ],
+        "filterResults":
+            "max-devices-asset-filter":false,
+            "test-filter":true
+        "filters": ["max-devices-asset-filter","test-filter"]
+        "properties":
+            "property1":"hi"
         }
 
 ### Create assets [POST]
@@ -255,4 +262,3 @@ this endpoint allow to read and delete assets.
 
 
 + Response 204
-
